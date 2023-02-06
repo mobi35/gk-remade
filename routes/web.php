@@ -1,8 +1,10 @@
 <?php
 
-use Illuminate\Foundation\Application;
-use Illuminate\Support\Facades\Route;
+use App\Models\User;
 use Inertia\Inertia;
+use Vanilo\Product\Models\Product;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Application;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +16,43 @@ use Inertia\Inertia;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/test', function () {
+
+    // $product = Product::create([
+    // 'name' => 'Dell Latitude E7240 Laptop',
+    // 'sku'  => 'DLL-74237'
+    // ]);
+
+
+  $kuri =  Product::create([
+    'name'             => 'Maxi Baxi 2000',
+    'sku'              => 'MXB-2000',
+    'stock'            => 123.4567,
+    'price'            => 1999.95,
+    'original_price'   => 2499.95,
+    'weight'           => 1.3,
+    'width'            => 27,
+    'height'           => 21,
+    'length'           => 60,
+    'slug'             => 'maxi-baxi-2000',
+    'excerpt'          => 'Maxi Baxi 2000 is the THING you always have dreamt of',
+    'description'      => 'Maxi Baxi 2000 makes your dreams come true. See: https://youtu.be/5RKM_VLEbOc',
+    'state'            => 'active',
+    'meta_keywords'    => 'maxi, baxi, dreams',
+    'meta_description' => 'The THING you always have dreamt of'
+]);
+
+
+
+    // $new = User::find(1);
+
+    dd($kuri->stock);
+
+    // $new = new User();
+    // dd($new, 'kan');
+
+});
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
